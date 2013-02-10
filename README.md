@@ -1,6 +1,7 @@
 # Proportionnal grids
 
-Work in progress
+Work in progress  
+Inspired by https://github.com/mattberridge/Proportional-Grids
 
 ## Usage
 ### SCSS
@@ -15,11 +16,23 @@ Work in progress
 
 ### HTML
     <div class="grid-wrapper">
-      <div class="grid tablet-half desktop-third">
+      <div class="grid tablet-two-thirds desktop-three-quarters">
         Content
       </div>
-      <div class="grid tablet-half desktop-two-thrids">
-        Content
+      <div class="grid tablet-third desktop-quarter">
+        Sidebar
+      </div>
+      <div class="grid tablet-half desktop-quarter">
+        Footer #1
+      </div>
+      <div class="grid tablet-half desktop-quarter">
+        Footer #2
+      </div>
+      <div class="grid tablet-half desktop-quarter">
+        Footer #3
+      </div>
+      <div class="grid tablet-half desktop-quarter">
+        Footer #4
       </div>
     </div>
 
