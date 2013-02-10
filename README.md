@@ -3,14 +3,54 @@
 Work in progress  
 Inspired by https://github.com/mattberridge/Proportional-Grids
 
-## Usage
+## Simple 960 desktop grid example
 ### SCSS
     @import "grid";
+    
+    @include grid;
+    
+    .container {
+      margin: 0 auto;
+      padding: 0 10px;
+      width: 960px;
+    }
+
+### HTML
+    <div class="container">
+      <div class="grid-wrapper">
+        <div class="grid three-quarters push-quarter">
+          Content
+        </div>
+        <div class="grid quarter pull-three-quarters">
+          Sidebar
+        </div>
+      </div>
+      <div class="grid-wrapper set-third no-gutters">
+        <div class="grid">
+          Footer #1
+        </div>
+        <div class="grid">
+          Footer #2
+        </div>
+        <div class="grid">
+          Footer #3
+        </div>
+      </div>
+    </div>
+    
+## Mobile first grid example
+### SCSS
+    @import "grid";
+    
+    $grid-number: 2; // We only full and half grids on mobile
+    
     @include grid; // Mobile-first
     @media only screen and (min-width: 480px) {
+      $grid-number: 3; // We want thirds grids on tablet
       @include grid(tablet); // Tablet and up
     }
     @media only screen and (min-width: 768px) {
+      $grid-number: 4; // We want quarters grids on desktop
       @include grid(desktop); // Desktop and up
     }
 
@@ -35,6 +75,41 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
         Footer #4
       </div>
     </div>
+    
+## Semantic responsive grid
+### SCSS
+    @import "grid";
+    
+    $grid-selector: "%";
+    $grid-gutter: 10px;
+    $grid-pushpull: false;
+    
+    @include grid; // Mobile first, 10px gutter
+    @media only screen and (min-width: 480px) {
+      @include grid(tablet, 15px); // Tablet and up, 15px gutter
+    }
+    @media only screen and (min-width: 768px) {
+      @include grid(desktop, 20px); // Desktop and up, 20px gutter
+    }
+    
+    .medias {
+      @extend .grid-wrapper;
+    }
+      .media-item {
+        @extend .grid, .half, .tablet-third, .tablet-quarter;
+      }
+        .media-img {
+          display: block;
+          width: 100%;
+        }
+
+### HTML  
+    <ul class="medias">
+      <li class="media-item">
+        <img src="img.jpg" class="media-img"/>
+      </li>
+      ...
+    </ul>
 
 ## Configuration
 
