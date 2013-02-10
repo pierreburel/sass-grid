@@ -1,0 +1,263 @@
+$grid-name: "grid" !default;
+$grid-gutter: 20px !default;
+$grid-number: 4 !default; // Number of grids to generate (up to 12)
+$grid-pushpull: true !default; // Set to false if you dont use push or pull
+$grid-selector: "." !default; // Use normal (.) or placeholder (%) class selector
+$grid-oldie: true !default; // Set to true to use css expressions for IE7 compatibility  
+
+@mixin grid($namespace: "", $gutter: $grid-gutter, $number: $grid-number, $pushpull: $grid-pushpull, $selector: $grid-selector, $name: $grid-name) {
+  $grid: #{$selector}#{$name}; // Grid prefix
+
+  // Grid configuration if no namespace
+  @if $namespace == "" {   
+    #{$grid}-wrapper {
+      @extend .clearfix !optional;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #{$grid} {
+      background-image: none;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      float: left;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      width: 100%;
+      @if $grid-oldie { @include grid-oldie; }
+    }
+  } @else {
+    $namespace: "#{$namespace}-";
+  }
+  
+  // Responsives gutters
+  @if $namespace == "" or ($namespace != "" and $gutter != $grid-gutter) {    
+    #{$grid}-wrapper {
+      @include grid-gutters;
+      
+      &.no-gutters {
+        @include grid-gutters(0);
+      }
+
+      &.reset-gutters {
+        @include grid-gutters;
+      }
+    }
+    
+    #{$grid}-inner {
+      padding: {
+        left: $gutter/2;
+        right: $gutter/2;
+      }
+    }
+  }
+
+  @include grid-proportions("width", $namespace, $number, $selector, $name);
+  @if $pushpull {
+    @include grid-proportions("push", $namespace, $number, $selector, $name);
+    @include grid-proportions("pull", $namespace, $number, $selector, $name);
+  }
+}
+
+@mixin grid-gutters($gutter: $grid-gutter, $selector: $grid-selector, $name: $grid-name) {
+  margin-left: - $gutter;
+  
+  #{$selector}#{$name} {
+    padding-left: $gutter;
+  }
+}
+
+@mixin grid-oldie($divider: 1, $multiplier: 1) {
+  *width: unquote("expression((this.parentNode.clientWidth / #{$divider} * #{$multiplier} - parseInt(this.currentStyle['paddingLeft'])) + 'px')");
+}
+
+@mixin grid-proportions($mode: "width", $namespace: "", $number: $grid-number, $selector: $grid-selector, $name: $grid-name) {
+  $grid: #{$selector}#{$name}; // Grid prefix
+  $prefix: #{$selector}#{$namespace}; // Namespace prefix
+  $property: "left";
+  $multiplier: 1;
+
+  @if $mode == "push" {
+    $prefix: "#{$prefix}push-";
+  } @else if $mode == "pull" {
+    $prefix: "#{$prefix}pull-";
+    $multiplier: -1;
+  } @else {
+    $property: "width";
+  }
+  
+  #{$prefix}full { 
+    #{$property}: 100% * $multiplier; 
+    @if $grid-oldie and $property == "width" { @include grid-oldie; }
+  }
+
+  @if $number >= 2 {
+    #{$prefix}half,
+    #{$prefix}one-half { 
+      #{$property}: 50% * $multiplier;
+      @if $grid-oldie and $property == "width" { @include grid-oldie(2); }
+    }
+    @if $property == "width" {
+      #{$prefix}set-half #{$grid} { @extend #{$prefix}half; }
+    }
+  }
+
+  @if $number >= 3 {
+    #{$prefix}third,
+    #{$prefix}one-third { 
+      #{$property}: 100% / 3 * $multiplier;
+      @if $grid-oldie and $property == "width" { @include grid-oldie(3); }
+    }
+    #{$prefix}two-thirds { 
+      #{$property}: 100% / 3 * 2 * $multiplier;
+      @if $grid-oldie and $property == "width" { @include grid-oldie(3, 2); }
+    }
+    @if $property == "width" {
+      #{$prefix}set-third #{$grid} { @extend #{$prefix}third; }
+    }
+  }
+
+  @if $number >= 4 {
+    #{$prefix}quarter,
+    #{$prefix}one-quarter { 
+      #{$property}: 25% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(4); }
+    }
+    #{$prefix}two-quarters { @extend #{$prefix}one-half; }
+    #{$prefix}three-quarters { 
+      #{$property}: 75% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(4, 3); }
+    }
+    @if $property == "width" {
+      #{$prefix}set-quarter #{$grid} { @extend #{$prefix}quarter; }
+    }
+  }
+
+  @if $number >= 5 {
+    #{$prefix}fifth, 
+    #{$prefix}one-fifth { 
+      #{$property}: 20% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(5); }
+    }
+    #{$prefix}two-fifths { 
+      #{$property}: 40% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(5, 2); }
+    }
+    #{$prefix}three-fifths { 
+      #{$property}: 60% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(5, 3); }
+    }
+    #{$prefix}four-fifths { 
+      #{$property}: 80% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(5, 4); }
+    }
+    @if $property == "width" {
+      #{$prefix}set-fifth #{$grid} { @extend #{$prefix}fifth; }
+    }
+  }
+
+  @if $number >= 6 {
+    #{$prefix}sixth,
+    #{$prefix}one-sixth { 
+      #{$property}: 100% / 6 * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(6); }
+    }
+    #{$prefix}two-sixths { @extend #{$prefix}one-third; }
+    #{$prefix}three-sixths { @extend #{$prefix}one-half; }
+    #{$prefix}four-sixths { @extend #{$prefix}two-thirds; }
+    #{$prefix}five-sixths { 
+      #{$property}: 100% / 6 * 5 * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(6, 5); }
+    }
+    @if $property == "width" {
+      #{$prefix}set-sixth #{$grid} { @extend #{$prefix}sixth; }
+    }
+  }
+  
+  @if $number >= 8 {
+    #{$prefix}eighth,
+    #{$prefix}one-eighth { 
+      #{$property}: 12.5% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(8); }
+    }
+    #{$prefix}two-eighths { @extend #{$prefix}one-quarter; }
+    #{$prefix}three-eighths { 
+      #{$property}: 37.5% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(8, 3); }
+    }
+    #{$prefix}four-eighths { @extend #{$prefix}one-half; }
+    #{$prefix}five-eighths { 
+      #{$property}: 62.5% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(8, 5); }
+    }
+    #{$prefix}six-eighths { @extend #{$prefix}three-quarters; }
+    #{$prefix}seven-eighths { 
+      #{$property}: 87.5% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(8, 7); }
+    }
+    @if $property == "width" {
+      #{$prefix}set-eighth #{$grid} { @extend #{$prefix}eighth; }
+    }
+  }
+
+  @if $number >= 10 {
+    #{$prefix}tenth,
+    #{$prefix}one-tenth { 
+      #{$property}: 10% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(10); }
+    }
+    #{$prefix}two-tenths { @extend #{$prefix}one-fifth; }
+    #{$prefix}three-tenths { 
+      #{$property}: 30% * $multiplier;
+      @if $grid-oldie and $property == "width" { @include grid-oldie(10, 3); }
+    }
+    #{$prefix}four-tenths { @extend #{$prefix}two-fifths; }
+    #{$prefix}five-tenths { @extend #{$prefix}one-half; }
+    #{$prefix}six-tenths { @extend #{$prefix}three-fifths; }
+    #{$prefix}seven-tenths { 
+      #{$property}: 70% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(10, 7); }
+    }
+    #{$prefix}eight-tenths { @extend #{$prefix}four-fifths; }
+    #{$prefix}nine-tenths { 
+      #{$property}: 90% * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(10, 9); }
+    }
+    @if $property == "width" {
+      #{$prefix}set-tenth #{$grid} { @extend #{$prefix}tenth; }
+    }
+  }
+  
+  @if $number == 12 {
+    #{$prefix}twelfth,
+    #{$prefix}one-twelfth { 
+      #{$property}: 100% / 12 * $multiplier;
+      @if $grid-oldie and $property == "width" { @include grid-oldie(12); }
+    }
+    #{$prefix}two-twelfths { @extend #{$prefix}one-sixth; }
+    #{$prefix}three-twelfths { @extend #{$prefix}one-quarter; }
+    #{$prefix}four-twelfths { @extend #{$prefix}one-third; }
+    #{$prefix}five-twelfths { 
+      #{$property}: 100% / 12 * 5 * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(12, 5); }
+    }
+    #{$prefix}six-twelfths { @extend #{$prefix}one-half; }
+    #{$prefix}seven-twelfths { 
+      #{$property}: 100% / 12 * 7 * $multiplier; 
+      @if $grid-oldie and $property == "width" { @include grid-oldie(12, 7); }
+    }
+    #{$prefix}eight-twelfths { @extend #{$prefix}two-thirds; }
+    #{$prefix}nine-twelfths { @extend #{$prefix}three-quarters; }
+    #{$prefix}ten-twelfths { @extend #{$prefix}five-sixths; }
+    #{$prefix}eleven-twelfths { 
+      #{$property}: 100% / 12 * 11 * $multiplier;
+      @if $grid-oldie and $property == "width" { @include grid-oldie(12, 11); }
+    }
+    @if $property == "width" {
+      #{$prefix}set-twelfth #{$grid} { @extend #{$prefix}twelfth; }
+    }
+  }
+}
