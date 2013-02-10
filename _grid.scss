@@ -36,14 +36,14 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
   // Responsives gutters
   @if $namespace == "" or ($namespace != "" and $gutter != $grid-gutter) {    
     #{$grid}-wrapper {
-      @include grid-gutters;
+      @include grid-gutters($gutter);
       
       &.no-gutters {
         @include grid-gutters(0);
       }
 
       &.reset-gutters {
-        @include grid-gutters;
+        @include grid-gutters($gutter);
       }
     }
     
