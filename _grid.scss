@@ -89,9 +89,11 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
     $property: "width";
   }
   
-  #{$prefix}full { 
-    #{$property}: 100% * $multiplier; 
-    @if $grid-oldie and $property == "width" { @include grid-oldie; }
+  @if $property == "width" {
+    #{$prefix}full { 
+      #{$property}: 100% * $multiplier; 
+      @if $grid-oldie { @include grid-oldie; }
+    }
   }
 
   @if $number >= 2 {
