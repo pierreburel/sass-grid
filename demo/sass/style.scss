@@ -2,10 +2,10 @@
 
 // Usage
 @include grid;
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   @include grid(tablet);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   @include grid(desktop);
 }
 

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Proportional grid</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="stylesheets/style.css" media="screen" />
     <script src="javascripts/respond.js"></script>
   </head>
@@ -13,10 +14,10 @@
       <h3>SCSS</h3>
       <pre>@import "grid";
 @include grid; // Mobile-first
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   @include grid(tablet); // Tablet and up
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   @include grid(desktop); // Desktop and up
 }</pre>
       <h3>HTML</h3>
@@ -177,10 +178,10 @@
       <pre>@import "grid";
 $grid-selector: "%";
 @include grid; // Mobile-first
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   @include grid(tablet); // Tablet and up
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   @include grid(desktop); // Desktop and up
 }
 .medias {

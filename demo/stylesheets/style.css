@@ -104,7 +104,7 @@
 .pull-three-quarters {
   left: -75%; }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   .tablet-full {
     width: 100%;
     *width: expression((this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
@@ -176,7 +176,7 @@
 
   .tablet-pull-three-quarters {
     left: -75%; } }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   .desktop-full {
     width: 100%;
     *width: expression((this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
