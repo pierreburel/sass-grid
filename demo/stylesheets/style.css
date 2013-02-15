@@ -1,67 +1,60 @@
 .grid-wrapper, .medias {
   list-style: none;
-  margin: 0;
   padding: 0; }
 
 .grid, .media-item {
-  background-image: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
   margin: 0;
-  padding: 0;
   position: relative;
   width: 100%;
-  *width: expression((this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
 .grid-wrapper, .medias {
-  margin-left: -20px; }
+  margin: 0 -10px; }
   .grid-wrapper .grid, .medias .grid, .grid-wrapper .media-item, .medias .media-item {
-    padding-left: 20px; }
+    padding: 0 10px; }
   .grid-wrapper.no-gutters, .no-gutters.medias {
-    margin-left: 0; }
+    margin: 0 0; }
     .grid-wrapper.no-gutters .grid, .no-gutters.medias .grid, .grid-wrapper.no-gutters .media-item, .no-gutters.medias .media-item {
-      padding-left: 0; }
+      padding: 0 0; }
   .grid-wrapper.reset-gutters, .reset-gutters.medias {
-    margin-left: -20px; }
+    margin: 0 -10px; }
     .grid-wrapper.reset-gutters .grid, .reset-gutters.medias .grid, .grid-wrapper.reset-gutters .media-item, .reset-gutters.medias .media-item {
-      padding-left: 20px; }
+      padding: 0 10px; }
 
 .grid-inner {
-  padding-left: 10px;
-  padding-right: 10px; }
+  padding: 0 10px; }
 
 .full {
   width: 100%;
-  *width: expression((this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
 .half, .set-half .grid, .set-half .media-item, .media-item,
 .one-half,
 .two-quarters {
   width: 50%;
-  *width: expression((this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
 .third, .set-third .grid, .set-third .media-item,
 .one-third {
   width: 33.33333%;
-  *width: expression((this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
 .two-thirds {
   width: 66.66667%;
-  *width: expression((this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
 .quarter, .set-quarter .grid, .set-quarter .media-item,
 .one-quarter {
   width: 25%;
-  *width: expression((this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
 .three-quarters {
   width: 75%;
-  *width: expression((this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
-
-.push-full {
-  left: 100%; }
+  *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
 .push-half,
 .push-one-half,
@@ -81,9 +74,6 @@
 
 .push-three-quarters {
   left: 75%; }
-
-.pull-full {
-  left: -100%; }
 
 .pull-half,
 .pull-one-half,
@@ -107,34 +97,31 @@
 @media only screen and (min-width: 481px) {
   .tablet-full {
     width: 100%;
-    *width: expression((this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .tablet-half, .tablet-set-half .grid, .tablet-set-half .media-item,
   .tablet-one-half,
   .tablet-two-quarters {
     width: 50%;
-    *width: expression((this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .tablet-third, .tablet-set-third .grid, .tablet-set-third .media-item, .media-item,
   .tablet-one-third {
     width: 33.33333%;
-    *width: expression((this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .tablet-two-thirds {
     width: 66.66667%;
-    *width: expression((this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .tablet-quarter, .tablet-set-quarter .grid, .tablet-set-quarter .media-item,
   .tablet-one-quarter {
     width: 25%;
-    *width: expression((this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .tablet-three-quarters {
     width: 75%;
-    *width: expression((this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
-
-  .tablet-push-full {
-    left: 100%; }
+    *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .tablet-push-half,
   .tablet-push-one-half,
@@ -154,9 +141,6 @@
 
   .tablet-push-three-quarters {
     left: 75%; }
-
-  .tablet-pull-full {
-    left: -100%; }
 
   .tablet-pull-half,
   .tablet-pull-one-half,
@@ -179,34 +163,31 @@
 @media only screen and (min-width: 769px) {
   .desktop-full {
     width: 100%;
-    *width: expression((this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .desktop-half, .desktop-set-half .grid, .desktop-set-half .media-item,
   .desktop-one-half,
   .desktop-two-quarters {
     width: 50%;
-    *width: expression((this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .desktop-third, .desktop-set-third .grid, .desktop-set-third .media-item,
   .desktop-one-third {
     width: 33.33333%;
-    *width: expression((this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .desktop-two-thirds {
     width: 66.66667%;
-    *width: expression((this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .desktop-quarter, .desktop-set-quarter .grid, .desktop-set-quarter .media-item, .media-item,
   .desktop-one-quarter {
     width: 25%;
-    *width: expression((this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .desktop-three-quarters {
     width: 75%;
-    *width: expression((this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle['paddingLeft'])) + 'px'); }
-
-  .desktop-push-full {
-    left: 100%; }
+    *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
 
   .desktop-push-half,
   .desktop-push-one-half,
@@ -226,9 +207,6 @@
 
   .desktop-push-three-quarters {
     left: 75%; }
-
-  .desktop-pull-full {
-    left: -100%; }
 
   .desktop-pull-half,
   .desktop-pull-one-half,

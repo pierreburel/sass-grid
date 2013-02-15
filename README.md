@@ -45,11 +45,11 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
     $grid-number: 2; // We only full and half grids on mobile
     
     @include grid; // Mobile-first
-    @media only screen and (min-width: 480px) {
+    @media only screen and (min-width: 481px) {
       $grid-number: 3; // We want thirds grids on tablet
       @include grid(tablet); // Tablet and up
     }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 769px) {
       $grid-number: 4; // We want quarters grids on desktop
       @include grid(desktop); // Desktop and up
     }
@@ -85,10 +85,10 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
     $grid-pushpull: false;
     
     @include grid; // Mobile first, 10px gutter
-    @media only screen and (min-width: 480px) {
+    @media only screen and (min-width: 481px) {
       @include grid(tablet, 15px); // Tablet and up, 15px gutter
     }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 769px) {
       @include grid(desktop, 20px); // Desktop and up, 20px gutter
     }
     

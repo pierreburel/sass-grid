@@ -13,18 +13,15 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
     #{$grid}-wrapper {
       @extend .clearfix !optional;
       list-style: none;
-      margin: 0;
       padding: 0;
     }
     
     #{$grid} {
-      background-image: none;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       float: left;
       margin: 0;
-      padding: 0;
       position: relative;
       width: 100%;
       @if $grid-oldie { @include grid-oldie; }
@@ -48,10 +45,7 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
     }
     
     #{$grid}-inner {
-      padding: {
-        left: $gutter/2;
-        right: $gutter/2;
-      }
+      padding: 0 $gutter/2;
     }
   }
 
@@ -63,15 +57,15 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
 }
 
 @mixin grid-gutters($gutter: $grid-gutter, $selector: $grid-selector, $name: $grid-name) {
-  margin-left: - $gutter;
+  margin: 0 $gutter/-2;
   
   #{$selector}#{$name} {
-    padding-left: $gutter;
+    padding: 0 $gutter/2;
   }
 }
 
 @mixin grid-oldie($divider: 1, $multiplier: 1) {
-  *width: unquote("expression((this.parentNode.clientWidth / #{$divider} * #{$multiplier} - parseInt(this.currentStyle['paddingLeft'])) + 'px')");
+  *width: unquote("expression(this.parentNode.clientWidth / #{$divider} * #{$multiplier} - parseInt(this.currentStyle.paddingLeft) * 2 + 'px')");
 }
 
 @mixin grid-proportions($mode: "width", $namespace: "", $number: $grid-number, $selector: $grid-selector, $name: $grid-name) {
