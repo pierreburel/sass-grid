@@ -129,40 +129,26 @@
         </div>
       </div>
 
-      <h2>Grid set + no gutter + grid inner</h2>
-      <pre>&lt;div class="grid-wrapper tablet-set-third no-gutters"&gt;
+      <h2>Grid set</h2>
+      <pre>&lt;div class="grid-wrapper tablet-set-half desktop-set-quarter"&gt;
   &lt;div class="grid"&gt;
-    &lt;div class="grid-inner"&gt; 
-      Content
-     &lt;/div&gt;
+    Content
   &lt;/div&gt;
-  &lt;div class="grid"&gt;
-    &lt;div class="grid-inner"&gt; 
-      Content
-     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="grid"&gt;
-    &lt;div class="grid-inner"&gt; 
-      Content
-     &lt;/div&gt;
-  &lt;/div&gt;
+  ...
 &lt;/div&gt;</pre>
       <div class="example example-3">
-        <div class="grid-wrapper tablet-set-third no-gutters">
+        <div class="grid-wrapper tablet-set-half desktop-set-quarter">
           <div class="grid">
-            <div class="grid-inner">
-              <p>4. Full on mobile, 1/3 on tablet and desktop</p>
-            </div>
+            <p>Full on mobile, half on tablet and quarter on desktop</p>
           </div>
           <div class="grid">
-            <div class="grid-inner">
-              <p>5. Full on mobile, 1/3 on tablet and desktop</p>
-            </div>
+            <p>Full on mobile, half on tablet and quarter on desktop</p>
           </div>
           <div class="grid">
-            <div class="grid-inner">
-              <p>6. Full on mobile, 1/3 on tablet and desktop</p>
-            </div>
+            <p>Full on mobile, half on tablet and quarter on desktop</p>
+          </div>
+          <div class="grid">
+            <p>Full on mobile, half on tablet and quarter on desktop</p>
           </div>
         </div>
       </div>
@@ -173,6 +159,7 @@
   &lt;li class="media-item"&gt;
     &lt;img alt="" class="media-img" src="http://placekitten.com/320/240" /&gt;
   &lt;/li&gt;
+  ...
 &lt;/ul&gt;</pre>
       <h3>SCSS</h3>
       <pre>@import "grid";
