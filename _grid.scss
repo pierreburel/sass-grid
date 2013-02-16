@@ -43,10 +43,6 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
         @include grid-gutters($gutter);
       }
     }
-    
-    #{$grid}-inner {
-      padding: 0 $gutter/2;
-    }
   }
 
   @include grid-proportions("width", $namespace, $number, $selector, $name);
