@@ -1,22 +1,22 @@
-$grid-name: "grid" !default;
-$grid-gutter: 20px !default;
+$grid-gutter: 20px !default; // Gutter size (px, em or %)
 $grid-number: 4 !default; // Number of grids to generate (up to 12)
 $grid-pushpull: true !default; // Set to false if you dont use push or pull
+
+$grid-name: "grid" !default; // Name of the grid element (ex. "col", "column")
+$grid-wrapper-name: "grid-wrapper" !default; // Name of the wrapper element (ex. "cols", "columns")
 $grid-selector: "." !default; // Use normal (.) or placeholder (%) class selector
 $grid-oldie: true !default; // Set to true to use css expressions for IE7 compatibility  
 
-@mixin grid($namespace: "", $gutter: $grid-gutter, $number: $grid-number, $pushpull: $grid-pushpull, $selector: $grid-selector, $name: $grid-name) {
-  $grid: #{$selector}#{$name}; // Grid prefix
-
+@mixin grid($namespace: "", $gutter: $grid-gutter, $number: $grid-number, $pushpull: $grid-pushpull) {
   // Grid configuration if no namespace
   @if $namespace == "" {   
-    #{$grid}-wrapper {
+    #{$grid-selector}#{$grid-wrapper-name} {
       @extend .clearfix !optional;
       list-style: none;
       padding: 0;
     }
     
-    #{$grid} {
+    #{$grid-selector}#{$grid-name} {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -32,7 +32,7 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
   
   // Responsives gutters
   @if $namespace == "" or ($namespace != "" and $gutter != $grid-gutter) {    
-    #{$grid}-wrapper {
+    #{$grid-selector}#{$grid-wrapper-name} {
       @include grid-gutters($gutter);
       
       &.no-gutters {
@@ -45,28 +45,30 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
     }
   }
 
-  @include grid-proportions("width", $namespace, $number, $selector, $name);
+  @include grid-proportions("width", $namespace, $number);
   @if $pushpull {
-    @include grid-proportions("push", $namespace, $number, $selector, $name);
-    @include grid-proportions("pull", $namespace, $number, $selector, $name);
+    @include grid-proportions("push", $namespace, $number);
+    @include grid-proportions("pull", $namespace, $number);
   }
 }
 
-@mixin grid-gutters($gutter: $grid-gutter, $selector: $grid-selector, $name: $grid-name) {
+@mixin grid-gutters($gutter: $grid-gutter) {
   margin: 0 $gutter/-2;
   
-  #{$selector}#{$name} {
+  #{$grid-selector}#{$grid-name} {
     padding: 0 $gutter/2;
   }
 }
 
 @mixin grid-oldie($divider: 1, $multiplier: 1) {
-  *width: unquote("expression(this.parentNode.clientWidth / #{$divider} * #{$multiplier} - parseInt(this.currentStyle.paddingLeft) * 2 + 'px')");
+  $divider: if($divider > 1, " / #{$divider}", "");
+  $multiplier: if($multiplier > 1, " * #{$multiplier}", "");
+  *width: unquote("expression(this.parentNode.clientWidth#{$divider}#{$multiplier} - parseInt(this.currentStyle.paddingLeft) * 2 + 'px')");
 }
 
-@mixin grid-proportions($mode: "width", $namespace: "", $number: $grid-number, $selector: $grid-selector, $name: $grid-name) {
-  $grid: #{$selector}#{$name}; // Grid prefix
-  $prefix: #{$selector}#{$namespace}; // Namespace prefix
+@mixin grid-proportions($mode: "width", $namespace: "", $number: $grid-number) {
+  $grid: #{$grid-selector}#{$grid-name}; // Grid prefix
+  $prefix: #{$grid-selector}#{$namespace}; // Namespace prefix
   $property: "left";
   $multiplier: 1;
 

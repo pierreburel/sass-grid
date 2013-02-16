@@ -1,6 +1,7 @@
 # Proportionnal grids
 
 Work in progress  
+Demo : http://labs.pierreburel.com/sass/proportionnal-grids/
 Inspired by https://github.com/mattberridge/Proportional-Grids
 
 ## Simple 960 desktop grid example
@@ -115,18 +116,20 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
 
 ### Variables
 
-    $grid-name: "grid" !default;
-    
-    $grid-gutter: 20px !default;
-    
+    $grid-gutter: 20px !default; // Gutter size (px, em or %)
+
     $grid-number: 4 !default; // Number of grids to generate (up to 12)
-    
+
     $grid-pushpull: true !default; // Set to false if you dont use push or pull
-    
+
+    $grid-name: "grid" !default; // Name of the grid element (ex. "col", "column")
+
+    $grid-wrapper-name: "grid-wrapper" !default; // Name of the wrapper element (ex. "cols", "columns")
+
     $grid-selector: "." !default; // Use normal (.) or placeholder (%) class selector
     
-    $grid-oldie: true !default; // Set to true to use css expressions for IE7 compatibility
+    $grid-oldie: true !default; // Set to true to use css expressions for IE7 compatibility  
 
 ### Mixin
     
-    @mixin grid($namespace, $gutter, $number, $pushpull, $selector, $name);
+    @mixin grid($namespace, $gutter, $number, $pushpull);

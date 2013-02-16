@@ -1,6 +1,7 @@
 .grid-wrapper, .medias {
   list-style: none;
-  padding: 0; }
+  padding: 0;
+}
 
 .grid, .media-item {
   -webkit-box-sizing: border-box;
@@ -10,242 +11,303 @@
   margin: 0;
   position: relative;
   width: 100%;
-  *width: expression(this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+  *width: expression(this.parentNode.clientWidth - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+}
 
 .grid-wrapper, .medias {
-  margin: 0 -10px; }
-  .grid-wrapper .grid, .medias .grid, .grid-wrapper .media-item, .medias .media-item {
-    padding: 0 10px; }
-  .grid-wrapper.no-gutters, .no-gutters.medias {
-    margin: 0 0; }
-    .grid-wrapper.no-gutters .grid, .no-gutters.medias .grid, .grid-wrapper.no-gutters .media-item, .no-gutters.medias .media-item {
-      padding: 0 0; }
-  .grid-wrapper.reset-gutters, .reset-gutters.medias {
-    margin: 0 -10px; }
-    .grid-wrapper.reset-gutters .grid, .reset-gutters.medias .grid, .grid-wrapper.reset-gutters .media-item, .reset-gutters.medias .media-item {
-      padding: 0 10px; }
+  margin: 0 -10px;
+}
+.grid-wrapper .grid, .medias .grid, .grid-wrapper .media-item, .medias .media-item {
+  padding: 0 10px;
+}
 
-.grid-inner {
-  padding: 0 10px; }
+.no-gutters {
+  margin: 0 0;
+}
+.no-gutters .grid, .no-gutters .media-item {
+  padding: 0 0;
+}
+
+.reset-gutters {
+  margin: 0 -10px;
+}
+.reset-gutters .grid, .reset-gutters .media-item {
+  padding: 0 10px;
+}
 
 .full {
   width: 100%;
-  *width: expression(this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+  *width: expression(this.parentNode.clientWidth - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+}
 
 .half, .set-half .grid, .set-half .media-item, .media-item,
 .one-half,
 .two-quarters {
   width: 50%;
-  *width: expression(this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+}
 
 .third, .set-third .grid, .set-third .media-item,
 .one-third {
   width: 33.33333%;
-  *width: expression(this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+}
 
 .two-thirds {
   width: 66.66667%;
-  *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+}
 
 .quarter, .set-quarter .grid, .set-quarter .media-item,
 .one-quarter {
   width: 25%;
-  *width: expression(this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 4 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+}
 
 .three-quarters {
   width: 75%;
-  *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+  *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+}
 
 .push-half,
 .push-one-half,
 .push-two-quarters {
-  left: 50%; }
+  left: 50%;
+}
 
 .push-third,
 .push-one-third {
-  left: 33.33333%; }
+  left: 33.33333%;
+}
 
 .push-two-thirds {
-  left: 66.66667%; }
+  left: 66.66667%;
+}
 
 .push-quarter,
 .push-one-quarter {
-  left: 25%; }
+  left: 25%;
+}
 
 .push-three-quarters {
-  left: 75%; }
+  left: 75%;
+}
 
 .pull-half,
 .pull-one-half,
 .pull-two-quarters {
-  left: -50%; }
+  left: -50%;
+}
 
 .pull-third,
 .pull-one-third {
-  left: -33.33333%; }
+  left: -33.33333%;
+}
 
 .pull-two-thirds {
-  left: -66.66667%; }
+  left: -66.66667%;
+}
 
 .pull-quarter,
 .pull-one-quarter {
-  left: -25%; }
+  left: -25%;
+}
 
 .pull-three-quarters {
-  left: -75%; }
+  left: -75%;
+}
 
 @media only screen and (min-width: 481px) {
   .tablet-full {
     width: 100%;
-    *width: expression(this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .tablet-half, .tablet-set-half .grid, .tablet-set-half .media-item,
   .tablet-one-half,
   .tablet-two-quarters {
     width: 50%;
-    *width: expression(this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .tablet-third, .tablet-set-third .grid, .tablet-set-third .media-item, .media-item,
   .tablet-one-third {
     width: 33.33333%;
-    *width: expression(this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .tablet-two-thirds {
     width: 66.66667%;
-    *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .tablet-quarter, .tablet-set-quarter .grid, .tablet-set-quarter .media-item,
   .tablet-one-quarter {
     width: 25%;
-    *width: expression(this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 4 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .tablet-three-quarters {
     width: 75%;
-    *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .tablet-push-half,
   .tablet-push-one-half,
   .tablet-push-two-quarters {
-    left: 50%; }
+    left: 50%;
+  }
 
   .tablet-push-third,
   .tablet-push-one-third {
-    left: 33.33333%; }
+    left: 33.33333%;
+  }
 
   .tablet-push-two-thirds {
-    left: 66.66667%; }
+    left: 66.66667%;
+  }
 
   .tablet-push-quarter,
   .tablet-push-one-quarter {
-    left: 25%; }
+    left: 25%;
+  }
 
   .tablet-push-three-quarters {
-    left: 75%; }
+    left: 75%;
+  }
 
   .tablet-pull-half,
   .tablet-pull-one-half,
   .tablet-pull-two-quarters {
-    left: -50%; }
+    left: -50%;
+  }
 
   .tablet-pull-third,
   .tablet-pull-one-third {
-    left: -33.33333%; }
+    left: -33.33333%;
+  }
 
   .tablet-pull-two-thirds {
-    left: -66.66667%; }
+    left: -66.66667%;
+  }
 
   .tablet-pull-quarter,
   .tablet-pull-one-quarter {
-    left: -25%; }
+    left: -25%;
+  }
 
   .tablet-pull-three-quarters {
-    left: -75%; } }
+    left: -75%;
+  }
+}
 @media only screen and (min-width: 769px) {
   .desktop-full {
     width: 100%;
-    *width: expression(this.parentNode.clientWidth / 1 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .desktop-half, .desktop-set-half .grid, .desktop-set-half .media-item,
   .desktop-one-half,
   .desktop-two-quarters {
     width: 50%;
-    *width: expression(this.parentNode.clientWidth / 2 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .desktop-third, .desktop-set-third .grid, .desktop-set-third .media-item,
   .desktop-one-third {
     width: 33.33333%;
-    *width: expression(this.parentNode.clientWidth / 3 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .desktop-two-thirds {
     width: 66.66667%;
-    *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 3 * 2 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .desktop-quarter, .desktop-set-quarter .grid, .desktop-set-quarter .media-item, .media-item,
   .desktop-one-quarter {
     width: 25%;
-    *width: expression(this.parentNode.clientWidth / 4 * 1 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 4 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .desktop-three-quarters {
     width: 75%;
-    *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px'); }
+    *width: expression(this.parentNode.clientWidth / 4 * 3 - parseInt(this.currentStyle.paddingLeft) * 2 + 'px');
+  }
 
   .desktop-push-half,
   .desktop-push-one-half,
   .desktop-push-two-quarters {
-    left: 50%; }
+    left: 50%;
+  }
 
   .desktop-push-third,
   .desktop-push-one-third {
-    left: 33.33333%; }
+    left: 33.33333%;
+  }
 
   .desktop-push-two-thirds {
-    left: 66.66667%; }
+    left: 66.66667%;
+  }
 
   .desktop-push-quarter,
   .desktop-push-one-quarter {
-    left: 25%; }
+    left: 25%;
+  }
 
   .desktop-push-three-quarters {
-    left: 75%; }
+    left: 75%;
+  }
 
   .desktop-pull-half,
   .desktop-pull-one-half,
   .desktop-pull-two-quarters {
-    left: -50%; }
+    left: -50%;
+  }
 
   .desktop-pull-third,
   .desktop-pull-one-third {
-    left: -33.33333%; }
+    left: -33.33333%;
+  }
 
   .desktop-pull-two-thirds {
-    left: -66.66667%; }
+    left: -66.66667%;
+  }
 
   .desktop-pull-quarter,
   .desktop-pull-one-quarter {
-    left: -25%; }
+    left: -25%;
+  }
 
   .desktop-pull-three-quarters {
-    left: -75%; } }
+    left: -75%;
+  }
+}
 body {
-  font: 1em/1.2 Arial, sans-serif; }
+  font: 1em/1.2 Arial, sans-serif;
+}
 
 p {
   background: #aaa;
   margin: 10px 0;
   padding: 10px;
-  text-align: center; }
+  text-align: center;
+}
 
 .container {
   background: #eee;
   margin: 10px auto;
   padding: 0 10px;
-  max-width: 960px; }
+  max-width: 960px;
+}
 
 .clearfix, .grid-wrapper, .medias {
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .media-img {
   border: 0;
   display: block;
   padding: 10px 0;
-  width: 100%; }
+  width: 100%;
+}
