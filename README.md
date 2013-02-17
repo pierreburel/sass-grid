@@ -1,8 +1,9 @@
 # Proportionnal grids
 
 Work in progress  
-Demo : http://labs.pierreburel.com/sass/proportionnal-grids/
-Inspired by https://github.com/mattberridge/Proportional-Grids
+
+Demo : http://labs.pierreburel.com/sass/proportionnal-grids/  
+Inspired by https://github.com/mattberridge/Proportional-Grids  
 
 ## Simple 960 desktop grid example
 ### SCSS
