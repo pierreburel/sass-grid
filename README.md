@@ -95,10 +95,10 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
     }
     
     .medias {
-      @extend .grid-wrapper;
+      @extend %grid-wrapper;
     }
       .media-item {
-        @extend .grid, .half, .tablet-third, .tablet-quarter;
+        @extend %grid, %half, %tablet-third, %tablet-quarter;
       }
         .media-img {
           display: block;
