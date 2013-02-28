@@ -4,7 +4,7 @@ Proportional, responsive and (eventually) semantic grid with (optional) IE7 comp
 
 **Work in progress**  
 
-Demo : http://labs.pierreburel.com/sass/proportionnal-grids/  
+Demo : http://labs.pierreburel.com/sass/grid/  
 Inspired by https://github.com/mattberridge/Proportional-Grids   
 
 ## Simple 960 desktop grid example
@@ -43,12 +43,16 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
     </div>
     
 ## Mobile first grid example
+
+With IE7 compatibility thanks to https://github.com/scottjehl/Respond
+
 ### SCSS
     @import "grid";
     
     $grid-name: "column"; // We prefer .column instead of .grid ...
     $grid-wrapper-name: "columns"; // ... and .columns instead of .grid-wrapper
     $grid-number: 2; // We only full and half grids on mobile
+    $grid-oldie: true; // We need IE7 compatibility
     
     @include grid; // Mobile-first
     @media only screen and (min-width: 481px) {
