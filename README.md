@@ -139,15 +139,15 @@ Gutter size (in `px`, `em` or `%`). `20px` by default.
 
     $grid-number
 
-Number of proportions to generate (up to `12`). `4` by default.
+Number of proportions to generate (up to `12`). `4` by default when using `.` selector to prevent bloat.
 
     $grid-pushpull
 
-Generate `push` and `pull` classes. `false` by default when `$grid-selector` is `.` to prevent bloat.
+Generate `push` and `pull` classes. `false` by default when using `.` selector to prevent bloat.
     
     $grid-oldie
 
-Use CSS expressions for IE7 compatibility. `true` by default
+Use CSS expressions for IE7 compatibility. `false` by default.
 
 ### Mixin
     
