@@ -20,10 +20,10 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
 ### HTML
     <div class="container">
       <div class="grid-wrapper">
-        <div class="grid three-quarters push-quarter">
+        <div class="grid three-quarters">
           Content
         </div>
-        <div class="grid quarter pull-three-quarters">
+        <div class="grid quarter">
           Sidebar
         </div>
       </div>
@@ -55,15 +55,16 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
     }
     @media only screen and (min-width: 769px) {
       $grid-number: 4; // We want quarters grids on desktop
+      $grid-pushpull: true; // We want to use pull and push on desktop
       @include grid(desktop); // Desktop and up
     }
 
 ### HTML
     <div class="columns">
-      <div class="column tablet-two-thirds desktop-three-quarters">
+      <div class="column tablet-two-thirds desktop-three-quarters desktop-push-quarter">
         Content
       </div>
-      <div class="column tablet-third desktop-quarter">
+      <div class="column tablet-third desktop-quarter desktop-pull-three-quarters">
         Sidebar
       </div>
     </div>
@@ -88,7 +89,6 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
     
     $grid-selector: "%";
     $grid-gutter: 10px;
-    $grid-pushpull: false;
     
     @include grid; // Mobile first, 10px gutter
     @media only screen and (min-width: 481px) {
@@ -121,19 +121,33 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
 
 ### Variables
 
-    $grid-gutter: 20px !default; // Gutter size (px, em or %)
+    $grid-selector
 
-    $grid-number: 4 !default; // Number of grids to generate (up to 12)
+Use normal (`.`) or placeholder (`%`) class selector. `.` by default.
 
-    $grid-pushpull: true !default; // Set to false if you dont use push or pull
+    $grid-name
 
-    $grid-name: "grid" !default; // Name of the grid element (ex. "col", "column")
+Name of the grid element (ex. `col`, `column`). `grid` by default.
 
-    $grid-wrapper-name: "grid-wrapper" !default; // Name of the wrapper element (ex. "cols", "columns")
+    $grid-wrapper-name
 
-    $grid-selector: "." !default; // Use normal (.) or placeholder (%) class selector
+Name of the wrapper element (ex. `cols`, `columns`). `grid-wrapper` by default.
+
+    $grid-gutter
+
+Gutter size (in `px`, `em` or `%`). `20px` by default.
+
+    $grid-number
+
+Number of proportions to generate (up to `12`). `4` by default.
+
+    $grid-pushpull
+
+Generate `push` and `pull` classes. `false` by default when `$grid-selector` is `.` to prevent bloat.
     
-    $grid-oldie: true !default; // Set to true to use css expressions for IE7 compatibility  
+    $grid-oldie
+
+Use CSS expressions for IE7 compatibility. `true` by default
 
 ### Mixin
     

@@ -1,10 +1,9 @@
-$grid-gutter: 20px !default; // Gutter size (px, em or %)
-$grid-number: 4 !default; // Number of grids to generate (up to 12)
-$grid-pushpull: true !default; // Set to false if you dont use push or pull
-
+$grid-selector: "." !default; // Use normal (.) or placeholder (%) class selector
 $grid-name: "grid" !default; // Name of the grid element (ex. "col", "column")
 $grid-wrapper-name: "grid-wrapper" !default; // Name of the wrapper element (ex. "cols", "columns")
-$grid-selector: "." !default; // Use normal (.) or placeholder (%) class selector
+$grid-gutter: 20px !default; // Gutter size (px, em or %)
+$grid-number: 4 !default; // Number of grids to generate (up to 12)
+$grid-pushpull: if($grid-selector == "%", true, false) !default; // Set to false if you dont use push or pull
 $grid-oldie: true !default; // Set to true to use css expressions for IE7 compatibility  
 
 @mixin grid($namespace: "", $gutter: $grid-gutter, $number: $grid-number, $pushpull: $grid-pushpull) {
