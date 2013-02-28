@@ -27,7 +27,7 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
           Sidebar
         </div>
       </div>
-      <div class="grid-wrapper set-third no-gutters">
+      <div class="grid-wrapper thirds no-gutters">
         <div class="grid">
           Footer #1
         </div>
@@ -44,6 +44,8 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
 ### SCSS
     @import "grid";
     
+    $grid-name: "column"; // We prefer .column instead of .grid ...
+    $grid-wrapper-name: "columns"; // ... and .columns instead of .grid-wrapper
     $grid-number: 2; // We only full and half grids on mobile
     
     @include grid; // Mobile-first
@@ -57,23 +59,25 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
     }
 
 ### HTML
-    <div class="grid-wrapper">
-      <div class="grid tablet-two-thirds desktop-three-quarters">
+    <div class="columns">
+      <div class="column tablet-two-thirds desktop-three-quarters">
         Content
       </div>
-      <div class="grid tablet-third desktop-quarter">
+      <div class="column tablet-third desktop-quarter">
         Sidebar
       </div>
-      <div class="grid tablet-half desktop-quarter">
+    </div>
+    <div class="columns tablet-halves desktop-quarters">
+      <div class="column">
         Footer #1
       </div>
-      <div class="grid tablet-half desktop-quarter">
+      <div class="column">
         Footer #2
       </div>
-      <div class="grid tablet-half desktop-quarter">
+      <div class="column">
         Footer #3
       </div>
-      <div class="grid tablet-half desktop-quarter">
+      <div class="column">
         Footer #4
       </div>
     </div>

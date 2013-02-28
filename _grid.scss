@@ -67,8 +67,7 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
 }
 
 @mixin grid-proportions($mode: "width", $namespace: "", $number: $grid-number) {
-  $grid: #{$grid-selector}#{$grid-name}; // Grid prefix
-  $prefix: #{$grid-selector}#{$namespace}; // Namespace prefix
+  $prefix: #{$grid-selector}#{$namespace};
   $property: "left";
   $multiplier: 1;
 
@@ -95,7 +94,8 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
       @if $grid-oldie and $property == "width" { @include grid-oldie(2); }
     }
     @if $property == "width" {
-      #{$prefix}set-half #{$grid} { @extend #{$prefix}half; }
+      #{$prefix}halves > *,
+      #{$prefix}halfs > * { @extend #{$prefix}half; }
     }
   }
 
@@ -110,7 +110,7 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
       @if $grid-oldie and $property == "width" { @include grid-oldie(3, 2); }
     }
     @if $property == "width" {
-      #{$prefix}set-third #{$grid} { @extend #{$prefix}third; }
+      #{$prefix}thirds > * { @extend #{$prefix}third; }
     }
   }
 
@@ -126,12 +126,12 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
       @if $grid-oldie and $property == "width" { @include grid-oldie(4, 3); }
     }
     @if $property == "width" {
-      #{$prefix}set-quarter #{$grid} { @extend #{$prefix}quarter; }
+      #{$prefix}quarters > * { @extend #{$prefix}quarter; }
     }
   }
 
   @if $number >= 5 {
-    #{$prefix}fifth, 
+    #{$prefix}fifth,
     #{$prefix}one-fifth { 
       #{$property}: 20% * $multiplier; 
       @if $grid-oldie and $property == "width" { @include grid-oldie(5); }
@@ -149,7 +149,7 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
       @if $grid-oldie and $property == "width" { @include grid-oldie(5, 4); }
     }
     @if $property == "width" {
-      #{$prefix}set-fifth #{$grid} { @extend #{$prefix}fifth; }
+      #{$prefix}fifths > * { @extend #{$prefix}fifth; }
     }
   }
 
@@ -167,7 +167,7 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
       @if $grid-oldie and $property == "width" { @include grid-oldie(6, 5); }
     }
     @if $property == "width" {
-      #{$prefix}set-sixth #{$grid} { @extend #{$prefix}sixth; }
+      #{$prefix}sixths > * { @extend #{$prefix}sixth; }
     }
   }
   
@@ -193,13 +193,13 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
       @if $grid-oldie and $property == "width" { @include grid-oldie(8, 7); }
     }
     @if $property == "width" {
-      #{$prefix}set-eighth #{$grid} { @extend #{$prefix}eighth; }
+      #{$prefix}eighths > * { @extend #{$prefix}eighth; }
     }
   }
 
   @if $number >= 10 {
     #{$prefix}tenth,
-    #{$prefix}one-tenth { 
+    #{$prefix}one-thenth { 
       #{$property}: 10% * $multiplier; 
       @if $grid-oldie and $property == "width" { @include grid-oldie(10); }
     }
@@ -221,7 +221,7 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
       @if $grid-oldie and $property == "width" { @include grid-oldie(10, 9); }
     }
     @if $property == "width" {
-      #{$prefix}set-tenth #{$grid} { @extend #{$prefix}tenth; }
+      #{$prefix}tenths > * { @extend #{$prefix}tenth; }
     }
   }
   
@@ -251,7 +251,7 @@ $grid-oldie: true !default; // Set to true to use css expressions for IE7 compat
       @if $grid-oldie and $property == "width" { @include grid-oldie(12, 11); }
     }
     @if $property == "width" {
-      #{$prefix}set-twelfth #{$grid} { @extend #{$prefix}twelfth; }
+      #{$prefix}twelfths > * { @extend #{$prefix}twelfth; }
     }
   }
 }
