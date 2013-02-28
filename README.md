@@ -4,7 +4,7 @@ Proportional, responsive and (eventually) semantic grid with (optional) IE7 comp
 
 **Work in progress**  
 
-Demo : http://labs.pierreburel.com/sass/proportionnal-grids/  
+Demo : http://labs.pierreburel.com/sass/grid/  
 Inspired by https://github.com/mattberridge/Proportional-Grids  
 
 ## Simple 960 desktop grid example
