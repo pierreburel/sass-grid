@@ -33,14 +33,14 @@ $grid-oldie: false !default; // Set to true to use css expressions for IE7 compa
   @if $namespace == "" or ($namespace != "" and $gutter != $grid-gutter) {    
     #{$grid-selector}#{$grid-wrapper-name} {
       @include grid-gutters($gutter);
-      
-      &.no-gutters {
-        @include grid-gutters(0);
-      }
+    }
+    
+    #{$grid-selector}no-gutters {
+      @include grid-gutters(0);
+    }
 
-      &.reset-gutters {
-        @include grid-gutters($gutter);
-      }
+    #{$grid-selector}reset-gutters {
+      @include grid-gutters($gutter);
     }
   }
 
