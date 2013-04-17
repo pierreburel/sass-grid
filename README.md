@@ -21,22 +21,22 @@ Inspired by https://github.com/mattberridge/Proportional-Grids
 
 ### HTML
     <div class="container">
-      <div class="grid-wrapper">
-        <div class="grid three-quarters">
+      <div class="grid">
+        <div class="grid-unit three-quarters">
           Content
         </div>
-        <div class="grid quarter">
+        <div class="grid-unit quarter">
           Sidebar
         </div>
       </div>
-      <div class="grid-wrapper thirds no-gutters">
-        <div class="grid">
+      <div class="grid thirds no-gutters">
+        <div class="grid-unit">
           Footer #1
         </div>
-        <div class="grid">
+        <div class="grid-unit">
           Footer #2
         </div>
-        <div class="grid">
+        <div class="grid-unit">
           Footer #3
         </div>
       </div>
@@ -49,8 +49,8 @@ With IE7 compatibility thanks to https://github.com/scottjehl/Respond
 ### SCSS
     @import "grid";
     
-    $grid-name: "column"; // We prefer .column instead of .grid ...
     $grid-wrapper-name: "columns"; // ... and .columns instead of .grid-wrapper
+    $grid-unit-name: "column"; // We prefer .column instead of .grid ...
     $grid-number: 2; // We only full and half grids on mobile
     $grid-oldie: true; // We need IE7 compatibility
     
@@ -105,10 +105,10 @@ With IE7 compatibility thanks to https://github.com/scottjehl/Respond
     }
     
     .medias {
-      @extend %grid-wrapper;
+      @extend %grid;
     }
       .media-item {
-        @extend %grid, %half, %tablet-third, %tablet-quarter;
+        @extend %grid-unit, %half, %tablet-third, %tablet-quarter;
       }
         .media-img {
           display: block;
@@ -131,13 +131,13 @@ With IE7 compatibility thanks to https://github.com/scottjehl/Respond
 
 Use normal (`.`) or placeholder (`%`) class selector. `.` by default.
 
-    $grid-name
-
-Name of the grid element (ex. `col`, `column`). `grid` by default.
-
     $grid-wrapper-name
 
-Name of the wrapper element (ex. `cols`, `columns`). `grid-wrapper` by default.
+Name of the wrapper element (ex. `cols`, `columns`, `grid`). `grid` by default.
+
+    $grid-unit-name
+
+Name of the grid element (ex. `col`, `column`, `grid__unit`). `grid-unit` by default.
 
     $grid-gutter
 
