@@ -137,7 +137,11 @@ Name of the wrapper element (ex. `cols`, `columns`, `grid`). `grid` by default.
 
     $grid-unit-name
 
-Name of the grid element (ex. `col`, `column`, `grid__unit`). `grid-unit` by default.
+Name of the grid element (ex. `col`, `column`, `grid__unit` or `false` for using direct descendant). `grid-unit` by default.  
+
+    $grid-prefix
+
+Set a prefix for all modifiers (ex. `grid-` for writing "grid grid-no-gutters grid-tablet-halves"). Empty by default.  
 
     $grid-gutter
 
