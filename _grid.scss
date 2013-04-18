@@ -33,7 +33,7 @@ $grid-prefix: "" !default; // Set a prefix for all modifiers (ex. "grid-" for us
   
   // Responsives gutters
   @if $namespace == "" or ($namespace != "" and $gutter != $grid-gutter) {    
-    @include grid-gutters("#{$namespace}#{$grid-wrapper-name}", $gutter);
+    @include grid-gutters($grid-wrapper-name, $gutter);
     @include grid-gutters("#{$grid-prefix}#{$namespace}no-gutters", 0);
     @include grid-gutters("#{$grid-prefix}#{$namespace}reset-gutters", $gutter);
   }
