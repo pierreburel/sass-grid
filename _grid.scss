@@ -195,7 +195,7 @@ $grid-prefix: "" !default; // Set a prefix for all modifiers (ex. "grid-" for us
 
   @if $number >= 10 {
     #{$prefix}tenth,
-    #{$prefix}one-thenth { 
+    #{$prefix}one-tenth { 
       #{$property}: 10% * $multiplier; 
       @if $grid-oldie and $property == "width" { @include grid-oldie(10); }
     }
